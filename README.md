@@ -4,8 +4,9 @@ jQuery Styled Select Box
 
 Select boxes look so ugly unstyled. This tiny library will fix it for you.
 
-----------
+![Select Box closed](https://i.imgur.com/2MDaYFQ.png)
 
+![Select Box Open](https://i.imgur.com/Vc9Z1t7.png)
 
 Usage
 --------
