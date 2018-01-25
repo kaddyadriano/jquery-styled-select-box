@@ -1,32 +1,45 @@
 /**
+ * V1.0.1
  * </> with <3 by Adrien
  * https://github.com/kaddyadriano/jquery-styled-select-box
  */
 (function($, d){
-    $(d).ready(function(){$('select.styled').styledSelect()});
-    $.fn.styledSelect = function(){
-        if(!this.length) return false;
-        var select = this,
-            val = select.val(),
-            selectedTitle = $('option[value="'+val+'"]').html(),
+    $(d).ready(function(){
+        $('select.styled').styledSelect();
+        $(d).on('click', function(e){
+            var el = $(e.target),
+                isSelect = el.closest('.select').length;
+            if(!isSelect){
+                $('.select .options').hide();
+                $('.select').removeClass('open');
+            }
+        });
+    });
+    $.fn.styledSelect = function() {
+        if (!this.length) return false;
+        this.each(function(k, select){
+            select = $(select);
+        var val = select.val(),
+            selectedTitle = $('option[value="' + val + '"]').html(),
             options = $('option', select),
             html = '';
-        html += '<div class="select"><span class="selected-display">'+selectedTitle+'</span><span class="arrow-wrap"></span></span>';
+        html += '<div class="select"><span class="selected-display">' + selectedTitle + '</span><span class="arrow-wrap"></span></span>';
         html += '<div class="options">';
-        options.each(function(k, opt){
+        options.each(function (k, opt) {
             opt = $(opt);
-            html += '<div class="option'+(opt.attr('value') == val ? ' selected' : '')+'" data-value="'+opt.attr('value')+'">'+opt.html()+'</div>';
+            html += '<div class="option' + (opt.attr('value') == val ? ' selected' : '') + '" data-value="' + opt.attr('value') + '">' + opt.html() + '</div>';
         });
         html += '</div>';
         html += '</div>';
         var htmlSelect = $(html);
-        htmlSelect.css({width: Number(parseInt(select.css('width'))+82)+'px'});
+        htmlSelect.css({width: Number(parseInt(select.css('width')) + 82) + 'px'});
         select.hide().before(htmlSelect);
-        $('.option').on('click', function(e){
+        $('.option', htmlSelect).on('click', function (e) {
             var opt = $(this),
                 optVal = opt.attr('data-value'),
-                optTitle = opt.html();
-            if(optVal != val){
+                optTitle = opt.html(),
+                val = select.val();
+            if (optVal != val) {
                 $('.selected-display', htmlSelect).html(optTitle);
                 select.val(optVal).trigger('change');
             }
@@ -35,20 +48,20 @@
             toggleOptions(htmlSelect);
         });
 
-        $('.selected-display, .arrow-wrap', htmlSelect).on('click', function(e){
+        $('.selected-display, .arrow-wrap', htmlSelect).on('click', function (e) {
             toggleOptions(htmlSelect);
         });
 
-        toggleOptions = function(htmlSelect){
-            if(htmlSelect.hasClass('open')){
+        toggleOptions = function (htmlSelect) {
+            if (htmlSelect.hasClass('open')) {
                 $('.options', htmlSelect).hide();
                 htmlSelect.removeClass('open');
-            }else{
+            } else {
                 htmlSelect.addClass('open');
                 $('.options', htmlSelect).show();
             }
         }
-
+    });
     }
     if(!$("style.styled-select-box-style").length) {
         var style = "<style class='styled-select-box-style' type='text/css'>" +
