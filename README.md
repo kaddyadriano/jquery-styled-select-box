@@ -1,6 +1,8 @@
-jQuery Styled Select Box
+V1.0.1 - jQuery Styled Select Box
 ====================
-
+New in V1.0.1:
+- Multiple select boxes on the same page
+- Click away to close the select box
 
 Select boxes look so ugly unstyled. This tiny library will fix it for you.
 
@@ -8,7 +10,7 @@ Select boxes look so ugly unstyled. This tiny library will fix it for you.
 
 ![Select Box Open](https://i.imgur.com/Vc9Z1t7.png)
 
-[VIEW DEMO](https://codepen.io/rstamper/pen/JMYKor)
+[VIEW DEMO - V1.0](https://codepen.io/rstamper/pen/JMYKor)
 
 Usage
 --------
