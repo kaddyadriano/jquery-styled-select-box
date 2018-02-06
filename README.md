@@ -10,7 +10,7 @@ Select boxes look so ugly unstyled. This tiny library will fix it for you.
 
 ![Select Box Open](https://i.imgur.com/Vc9Z1t7.png)
 
-[VIEW DEMO - V1.0](https://codepen.io/rstamper/pen/JMYKor)
+[VIEW DEMO](https://codepen.io/kadrien/pen/JpKBKO)
 
 Usage
 --------
