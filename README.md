@@ -3,6 +3,7 @@ V1.0.1 - jQuery Styled Select Box
 New in V1.0.1:
 - Multiple select boxes on the same page
 - Click away to close the select box
+- Dynamically refresh the selection by triggering 'refresh' event on the select box. Ex: ``$("select").trigger("refresh")``
 
 Select boxes look so ugly unstyled. This tiny library will fix it for you.
 
